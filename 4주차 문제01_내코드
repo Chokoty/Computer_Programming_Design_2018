@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+int main()
+{
+	int a[5];
+	int sum = 0;
+	float d = 0, mean = 0;
+	int cnt = 0;
+	srand(10); //씨앗 10-> 결과 동일
+	for (int i = 0; i < 5; i++)
+	{
+		a[i] = rand() % (49 - 37 + 1) + 37;
+	}
+	printf("난수:");
+	for (int j = 0; j < 5; j++)
+	{
+		printf("%d ", a[j]);
+		if (a[j] >= 43) //43 이상만 계산하도록
+		{
+			sum = sum + a[j];
+			cnt++;
+		}
+		mean = (float)sum / cnt;	
+	}
+
+	for (int k = 0; k < 5; k++)
+	{
+		if (a[k] >= 43) //43 이상만 계산하도록
+		{
+			d = d+(mean - a[k])*(mean - a[k]);
+		}
+	}
+	d = sqrt(d/cnt);
+	printf("\n");
+	//printf("\n%d\n",cnt);
+	printf("합계:%d 표준편차: %f\n", sum, d);
+	return 0;
+}
