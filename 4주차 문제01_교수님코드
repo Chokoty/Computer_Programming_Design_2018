@@ -1,0 +1,90 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+/*
+seed 10
+37이상 49이하 정수 타입의 랜덤 변수 5개를 생성
+43이상의 정수의 합계와 표준편차 출력
+*/
+
+int main(void)
+{
+	int num1, num2, num3, num4, num5, cnt, sum;
+	double avg, sd, temp_sum;
+	
+	int range, minimum;
+	range = 49 - 37 + 1;
+	minimum = 37;
+	
+	srand(10);
+	num1 = rand() % range + minimum;
+	num2 = rand() % range + minimum;
+	num3 = rand() % range + minimum;
+	num4 = rand() % range + minimum;
+	num5 = rand() % range + minimum;
+
+	printf("난수: %d %d %d %d %d\n", num1, num2, num3, num4, num5);
+
+
+	sum = 0, cnt = 0;
+	if (num1 >= 43)
+	{
+		sum += num1;
+		cnt++;
+	}
+	if (num2 >= 43)
+	{
+		sum += num2;
+		cnt++;
+	}
+	if (num3 >= 43)
+	{
+		sum += num3;
+		cnt++;
+	}
+	if (num4 >= 43)
+	{
+		sum += num4;
+		cnt++;
+	}
+	if (num5 >= 43)
+	{
+		sum += num5;
+		cnt++;
+	}
+	avg = (double)sum / cnt;
+
+	temp_sum = 0;
+	if (num1 >= 43)
+		temp_sum += (num1 - avg)*(num1 - avg);
+	if (num2 >= 43)
+		temp_sum += (num2 - avg)*(num2 - avg);
+	if (num3 >= 43)
+		temp_sum += (num3 - avg)*(num3 - avg);
+	if (num4 >= 43)
+		temp_sum += (num4 - avg)*(num4 - avg);
+	if (num5 >= 43)
+		temp_sum += (num5 - avg)*(num5 - avg);
+	sd = sqrt(temp_sum/cnt);
+	printf("합계:%d 표준편차: %lf\n", sum, sd);
+	return 0;
+}
+
+/* 
+정답
+
+43
+49
+46
+42 제외
+45
+
+합계: 183
+표준편차 2.165064
+
+
+
+
+*/
