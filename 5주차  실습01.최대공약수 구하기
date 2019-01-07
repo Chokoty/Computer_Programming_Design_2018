@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#define MSG4USAGE "두 자연수(1이상) 자연수의 최대 공약수를 구하는 프로그램입니다.\n"
+#define MSG4B "또 다른 자연수 값을 입력하시오:"
+#define MSG4A "최대 공약수를 구할 자연수 값을 입력하시오:"
+#define MSG4ERR "1 이상의 두	자연수의 최대공약수를 구하는 프로그램입니다.\n 프로그램을종료합니다\n" 
+#include <stdio.h>
+#include "gcd.h"
+
+int main()
+{
+	int a, b,gcd;
+	printf(MSG4USAGE);
+	printf(MSG4A); scanf("%d", &a);
+	printf(MSG4B); scanf("%d", &b);
+	if (a < 1 | b < 1) printf(MSG4ERR);
+	else{
+		gcd = GCD(a, b);
+		printf("%d과 %d의 최대 공약수 : %d\n", a, b, gcd);
+	}
+	return 0;
+}
