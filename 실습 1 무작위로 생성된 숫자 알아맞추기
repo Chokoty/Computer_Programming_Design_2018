@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+//
+int main()
+{
+	int hid = 2;
+	int n=0;
+	while (n != 2)
+	{
+		
+		scanf("%d", &n);
+		if (n < 1 || n >= 9){
+			printf("1~8 까지만 입력하세요\n");
+		}
+		if (n == 2){
+			printf("축하합니다.\n");
+			return 0;
+		}
+		if(n>hid){
+			printf("hid 보다 크다.\n");
+		}
+		else{
+			printf("hid 보다 작다.\n");
+		}
+	}
+	return 0;
+}
