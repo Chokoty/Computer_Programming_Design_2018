@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <math.h>
+#include "bin2dec.h"
+int main()
+{
+	int dec,bin;
+	scanf("%d", &bin);
+	if (bin >= 0 && bin <= 1111) {
+		dec = Bin2Dec(bin);
+		printf("이진수 %d을 10진법으로 표현한 값 = %d\n", bin, dec);
+	}
+	else {
+		printf("값이 범위[0, 1111]를 벗어 났습니다\n");
+	}
+	return 0;
+}
