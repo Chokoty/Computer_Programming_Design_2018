@@ -1,0 +1,13 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <math.h>
+#include "dec2bin.h"
+int main()
+{
+	int dec,bin;
+	scanf("%d", &dec);
+
+	bin = Dec2Bin(dec);
+	printf("%d을 2진법으로 표현한 값 = %d\n", dec, bin);
+	return 0;
+}
